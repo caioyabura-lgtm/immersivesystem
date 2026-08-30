@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Da Floresta ao Espetáculo — proposta técnica e comercial de Caio Rodrigues / Fab Lab Acousmonium."
+  >
+
+  <title>
+    Da Floresta ao Espetáculo
+  </title>
+
+  <link
+    rel="preload"
+    as="image"
+    href="./capa.jpeg?v=20260830"
+    fetchpriority="high"
+  >
+
+
+  <!--
+  ============================================================
+  FONTE
+  Exo 2 — Natanael Gama
+  ============================================================
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       VARIÁVEIS
+    ========================================================= */
+
+    :root {
+
+      --bg:
+        #0a0807;
+
+      --bg-soft:
+        #12100e;
+
+      --text:
+        #f1e7dc;
+
+      --muted:
+        #b9ab9d;
+
+      --bronze:
+        #c38a5e;
+
+      --bronze-dark:
+        #825d43;
+
+      --line:
+        rgba(232, 211, 191, 0.16);
+
+      --panel:
+        rgba(255, 255, 255, 0.035);
+
+      --max:
+        1180px;
+
+      --radius:
+        22px;
+
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 20% 15%,
+          rgba(174, 105, 67, 0.10),
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(174, 105, 67, 0.07),
+          transparent 28%
+        ),
+
+        var(--bg);
+
+      color:
+        var(--text);
+
+      font-family:
+        "Exo 2",
+        Arial,
+        sans-serif;
+
+      font-weight:
+        400;
+
+      line-height:
+        1.55;
+
+      overflow-x:
+        hidden;
+
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    /* =========================================================
+       ESTRUTURA
+    ========================================================= */
+
+    .wrap {
+
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max)
+        );
+
+      margin:
+        0 auto;
+
+    }
+
+
+    section {
+
+      padding:
+        110px 0;
+
+      border-top:
+        1px solid var(--line);
+
+    }
+
+
+    /* =========================================================
+       TIPOGRAFIA
+    ========================================================= */
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+
+    h1 {
+
+      font-size:
+        clamp(
+          3.2rem,
+          7.5vw,
+          7.3rem
+        );
+
+      line-height:
+        0.91;
+
+      letter-spacing:
+        -0.045em;
+
+      font-weight:
+        400;
+
+      margin-bottom:
+        28px;
+
+      max-width:
+        900px;
+
+    }
+
+
+    h2 {
+
+      font-size:
+        clamp(
+          2rem,
+          4vw,
+          4.2rem
+        );
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -0.035em;
+
+      font-weight:
+        400;
+
+      margin-bottom:
+        28px;
+
+    }
+
+
+    h3 {
+
+      font-size:
+        1.18rem;
+
+      font-weight:
+        600;
+
+      margin-bottom:
+        10px;
+
+    }
+
+
+    .eyebrow {
+
+      margin-bottom:
+        15px;
+
+      color:
+        var(--bronze);
+
+      font-size:
+        0.72rem;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        0.2em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .lead {
+
+      max-width:
+        820px;
+
+      color:
+        #e0d3c6;
+
+      font-size:
+        clamp(
+          1.08rem,
+          2vw,
+          1.42rem
+        );
+
+    }
+
+
+    .small {
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.92rem;
+
+    }
+
+
+    /* =========================================================
+       MENU
+    ========================================================= */
+
+    nav {
+
+      position:
+        fixed;
+
+      z-index:
+        100;
+
+      left:
+        0;
+
+      right:
+        0;
+
+      top:
+        0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(5, 4, 3, 0.80),
+          transparent
+        );
+
+    }
+
+
+    nav .wrap {
+
+      min-height:
+        74px;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        30px;
+
+    }
+
+
+    .brand {
+
+      font-size:
+        0.78rem;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        0.13em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .nav-links {
+
+      display:
+        flex;
+
+      gap:
+        26px;
+
+      color:
+        #d8c9ba;
+
+      font-size:
+        0.8rem;
+
+    }
+
+
+    .nav-links a {
+
+      transition:
+        color 0.2s ease;
+
+    }
+
+
+    .nav-links a:hover {
+
+      color:
+        white;
+
+    }
+
+
+    /* =========================================================
+       CAPA
+    ========================================================= */
+
+    .hero {
+
+      min-height:
+        100svh;
+
+      position:
+        relative;
+
+      display:
+        flex;
+
+      align-items:
+        flex-end;
+
+      border:
+        0;
+
+      isolation:
+        isolate;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          rgba(6, 4, 3, 0.05) 0%,
+          rgba(6, 4, 3, 0.12) 47%,
+          rgba(6, 4, 3, 0.94) 100%
+        ),
+
+        url("./capa.jpeg?v=20260830")
+        center center /
+        cover
+        no-repeat;
+
+    }
+
+
+    .hero::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      z-index:
+        -1;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.30),
+          transparent 65%
+        );
+
+    }
+
+
+    .hero-content {
+
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max)
+        );
+
+      margin:
+        0 auto;
+
+      padding:
+        150px 0 60px;
+
+    }
+
+
+    .hero-subtitle {
+
+      max-width:
+        760px;
+
+      margin-bottom:
+        38px;
+
+      color:
+        #eee0d4;
+
+      font-size:
+        clamp(
+          1rem,
+          1.8vw,
+          1.3rem
+        );
+
+    }
+
+
+    .hero-tags {
+
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px 28px;
+
+      color:
+        #d5c5b5;
+
+      font-size:
+        0.81rem;
+
+      letter-spacing:
+        0.10em;
+
+      text-transform:
+        uppercase;
+
+    }
+
+
+    .hero-tags span::before {
+
+      content:
+        "";
+
+      display:
+        inline-block;
+
+      width:
+        18px;
+
+      height:
+        1px;
+
+      margin-right:
+        8px;
+
+      background:
+        var(--bronze);
+
+      vertical-align:
+        middle;
+
+    }
+
+
+    /* =========================================================
+       INTRODUÇÃO
+    ========================================================= */
+
+    .intro-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.15fr 0.85fr;
+
+      gap:
+        70px;
+
+      align-items:
+        start;
+
+    }
+
+
+    .quote {
+
+      border-left:
+        1px solid var(--bronze);
+
+      padding-left:
+        26px;
+
+      color:
+        #d3c5b8;
+
+      font-size:
+        1.05rem;
+
+    }
+
+
+    /* =========================================================
+       CARDS
+    ========================================================= */
+
+    .cards {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        16px;
+
+      margin-top:
+        45px;
+
+    }
+
+
+    .card {
+
+      min-height:
+        210px;
+
+      padding:
+        30px;
+
+      border:
+        1px solid var(--line);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.045),
+          rgba(255,255,255,0.015)
+        );
+
+    }
+
+
+    .card-number {
+
+      display:
+        block;
+
+      margin-bottom:
+        40px;
+
+      color:
+        var(--bronze);
+
+      font-size:
+        0.72rem;
+
+      letter-spacing:
+        0.16em;
+
+    }
+
+
+    .card p {
+
+      margin-bottom:
+        0;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    /* =========================================================
+       PREÇOS
+    ========================================================= */
+
+    .price-list {
+
+      margin-top:
+        48px;
+
+      border-top:
+        1px solid var(--line);
+
+    }
+
+
+    .price-row {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      gap:
+        30px;
+
+      align-items:
+        baseline;
+
+      padding:
+        22px 0;
+
+      border-bottom:
+        1px solid var(--line);
+
+    }
+
+
+    .price {
+
+      color:
+        var(--bronze);
+
+      font-weight:
+        600;
+
+      white-space:
+        nowrap;
+
+    }
+
+
+    /* =========================================================
+       TECNOLOGIAS
+    ========================================================= */
+
+    .tech-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        18px;
+
+      margin-top:
+        48px;
+
+    }
+
+
+    .tech {
+
+      padding:
+        20px 5px;
+
+      border-top:
+        1px solid var(--bronze-dark);
+
+    }
+
+
+    .tech strong {
+
+      display:
+        block;
+
+      margin-bottom:
+        8px;
+
+      font-size:
+        1.08rem;
+
+    }
+
+
+    .tech span {
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.92rem;
+
+    }
+
+
+    /* =========================================================
+       FLUXO
+    ========================================================= */
+
+    .flow {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap:
+        14px;
+
+      margin-top:
+        50px;
+
+      counter-reset:
+        fluxo;
+
+    }
+
+
+    .flow-item {
+
+      min-height:
+        180px;
+
+      padding:
+        23px;
+
+      border-top:
+        1px solid var(--line);
+
+    }
+
+
+    .flow-item::before {
+
+      counter-increment:
+        fluxo;
+
+      content:
+        "0" counter(fluxo);
+
+      display:
+        block;
+
+      margin-bottom:
+        30px;
+
+      color:
+        var(--bronze);
+
+      font-size:
+        0.72rem;
+
+      letter-spacing:
+        0.15em;
+
+    }
+
+
+    /* =========================================================
+       RIDER 16 CANAIS
+    ========================================================= */
+
+    .feature {
+
+      margin-top:
+        50px;
+
+      padding:
+        clamp(
+          30px,
+          5vw,
+          60px
+        );
+
+      border:
+        1px solid
+        rgba(195, 138, 94, 0.35);
+
+      border-radius:
+        28px;
+
+      background:
+
+        radial-gradient(
+          circle at 85% 15%,
+          rgba(195,138,94,0.13),
+          transparent 28%
+        ),
+
+        rgba(
+          255,
+          255,
+          255,
+          0.02
+        );
+
+    }
+
+
+    .feature-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.2fr 0.8fr;
+
+      gap:
+        65px;
+
+    }
+
+
+    .feature ul {
+
+      margin-bottom:
+        0;
+
+      padding-left:
+        20px;
+
+      color:
+        #d5c8bb;
+
+    }
+
+
+    .feature li {
+
+      margin:
+        10px 0;
+
+    }
+
+
+    .big-price {
+
+      margin:
+        8px 0 12px;
+
+      color:
+        var(--bronze);
+
+      font-size:
+        clamp(
+          2.7rem,
+          5vw,
+          5rem
+        );
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        -0.04em;
+
+      line-height:
+        0.95;
+
+    }
+
+
+    .separator {
+
+      height:
+        1px;
+
+      margin:
+        34px 0;
+
+      background:
+        var(--line);
+
+    }
+
+
+    /* =========================================================
+       CONDIÇÕES
+    ========================================================= */
+
+    .terms {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        18px 50px;
+
+      margin-top:
+        40px;
+
+    }
+
+
+    .term {
+
+      padding-top:
+        16px;
+
+      border-top:
+        1px solid var(--line);
+
+      color:
+        #d3c5b8;
+
+    }
+
+
+    /* =========================================================
+       FINAL
+    ========================================================= */
+
+    .final {
+
+      text-align:
+        center;
+
+      padding:
+        110px 0;
+
+    }
+
+
+    .final h2 {
+
+      max-width:
+        850px;
+
+      margin-left:
+        auto;
+
+      margin-right:
+        auto;
+
+    }
+
+
+    .button {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-height:
+        52px;
+
+      margin-top:
+        20px;
+
+      padding:
+        0 28px;
+
+      border:
+        1px solid var(--bronze);
+
+      border-radius:
+        999px;
+
+      transition:
+        0.25s ease;
+
+    }
+
+
+    .button:hover {
+
+      background:
+        var(--bronze);
+
+      color:
+        #100c09;
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    .identity {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        50px;
+
+      margin-top:
+        80px;
+
+      padding-top:
+        30px;
+
+      border-top:
+        1px solid var(--line);
+
+      text-align:
+        left;
+
+      color:
+        var(--muted);
+
+    }
+
+
+    .identity strong {
+
+      color:
+        var(--text);
+
+    }
+
+
+    footer {
+
+      padding:
+        32px 0;
+
+      border-top:
+        1px solid var(--line);
+
+      color:
+        #7e7369;
+
+      font-size:
+        0.8rem;
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVO
+    ========================================================= */
+
+    @media (max-width: 860px) {
+
+      .nav-links {
+        display: none;
+      }
+
+
+      .intro-grid,
+      .cards,
+      .tech-grid,
+      .flow,
+      .feature-grid,
+      .terms {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .price-row {
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          5px;
+
+      }
+
+
+      .price {
+        white-space: normal;
+      }
+
+
+      .identity {
+
+        flex-direction:
+          column;
+
+      }
+
+
+      section {
+
+        padding:
+          80px 0;
+
+      }
+
+
+      .hero {
+
+        background-position:
+          center center;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       MENU
+  ======================================================== -->
+
+  <nav>
+
+    <div class="wrap">
+
+      <div class="brand">
+        Caio Rodrigues · Fab Lab Acousmonium
+      </div>
+
+      <div class="nav-links">
+
+        <a href="#servicos">
+          Serviços
+        </a>
+
+        <a href="#tecnologias">
+          Tecnologias
+        </a>
+
+        <a href="#rider">
+          16 canais
+        </a>
+
+        <a href="#condicoes">
+          Condições
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =======================================================
+       CAPA
+  ======================================================== -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        Proposta técnica e comercial
+      </p>
+
+      <h1>
+        Da Floresta<br>
+        ao Espetáculo
+      </h1>
+
+      <p class="hero-subtitle">
+
+        Gestão de cena, direção técnica,
+        sistemas multimídia e arquitetura
+        de áudio imersivo.
+
+      </p>
+
+
+      <div class="hero-tags">
+
+        <span>
+          Ambisonics
+        </span>
+
+        <span>
+          Multicanal
+        </span>
+
+        <span>
+          Open Source
+        </span>
+
+        <span>
+          Live Spatialization
+        </span>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =====================================================
+         CONCEITO
+    ====================================================== -->
+
+    <section>
+
+      <div class="wrap intro-grid">
+
+        <div>
+
+          <p class="eyebrow">
+            Princípio de trabalho
+          </p>
+
+          <h2>
+            Tecnologia a serviço
+            da narrativa artística.
+          </h2>
+
+          <p class="lead">
+
+            Criação, planejamento técnico e operação
+            são pensados como partes do mesmo sistema.
+
+            A tecnologia é escolhida e configurada
+            segundo o espaço, a dramaturgia e as
+            necessidades específicas de cada produção.
+
+          </p>
+
+        </div>
+
+
+        <div class="quote">
+
+          O projeto pode contratar apenas uma frente
+          específica ou combinar diferentes módulos
+          dentro de uma única direção técnica.
+
+          <br><br>
+
+          O objetivo não é impor uma infraestrutura,
+          mas construir exatamente o sistema
+          necessário para a obra.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SERVIÇOS
+    ====================================================== -->
+
+    <section id="servicos">
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          O que eu entrego
+        </p>
+
+        <h2>
+          Estrutura modular
+          de serviços
+        </h2>
+
+
+        <div class="cards">
+
+
+          <article class="card">
+
+            <span class="card-number">
+              01
+            </span>
+
+            <h3>
+              Gestão de Cena
+              & Direção Técnica
+            </h3>
+
+            <p>
+
+              Planejamento, escalonamento,
+              coordenação de montagem,
+              testes, equipes técnicas
+              e operação do espetáculo.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="card">
+
+            <span class="card-number">
+              02
+            </span>
+
+            <h3>
+              Arquitetura
+              de Áudio Imersivo
+            </h3>
+
+            <p>
+
+              Desenho multicanal,
+              Ambisonics, espacialização,
+              instalação e integração
+              entre som, espaço e dramaturgia.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="card">
+
+            <span class="card-number">
+              03
+            </span>
+
+            <h3>
+              Operação Multimídia
+            </h3>
+
+            <p>
+
+              Integração e operação de
+              áudio, vídeo, projeção,
+              sincronismo, automação
+              e sistemas interativos.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="card">
+
+            <span class="card-number">
+              04
+            </span>
+
+            <h3>
+              Open Source
+              & Eletrônica Criativa
+            </h3>
+
+            <p>
+
+              Desenvolvimento de sistemas,
+              sensores, controladores,
+              interfaces customizadas
+              e estruturas reconfiguráveis.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+
+
+        <div class="price-list">
+
+
+          <div class="price-row">
+
+            <div>
+              Direção Técnica
+            </div>
+
+            <div class="price">
+              €450–700 / dia
+            </div>
+
+          </div>
+
+
+
+          <div class="price-row">
+
+            <div>
+              Instalação Multicanal
+              + Afinação do Sistema
+            </div>
+
+            <div class="price">
+              €450–700 / dia
+            </div>
+
+          </div>
+
+
+
+          <div class="price-row">
+
+            <div>
+              Operação Multimídia
+            </div>
+
+            <div class="price">
+              €400–650 / dia
+            </div>
+
+          </div>
+
+
+
+          <div class="price-row">
+
+            <div>
+              Sistema Multicanal
+              / Ambisonics
+            </div>
+
+            <div class="price">
+              €1.200–2.500 / projeto
+            </div>
+
+          </div>
+
+
+
+          <div class="price-row">
+
+            <div>
+              Desenvolvimento Open Source
+              / Eletrônica Criativa
+            </div>
+
+            <div class="price">
+              €900–2.500 / módulo
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TECNOLOGIAS
+    ====================================================== -->
+
+    <section id="tecnologias">
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Descritivo técnico
+        </p>
+
+        <h2>
+          Captação.
+          Processamento.
+          Live.
+        </h2>
+
+
+        <p class="lead">
+
+          Tecnologias abertas, modulares
+          e interoperáveis selecionadas
+          segundo as necessidades
+          artísticas e técnicas
+          de cada projeto.
+
+        </p>
+
+
+        <div class="tech-grid">
+
+
+          <div class="tech">
+
+            <strong>
+              Ambisonics
+            </strong>
+
+            <span>
+
+              Captação espacial,
+              processamento,
+              composição
+              e live spatialization.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="tech">
+
+            <strong>
+              SuperCollider
+            </strong>
+
+            <span>
+
+              Síntese,
+              processamento de áudio,
+              espacialização
+              e sistemas em tempo real.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="tech">
+
+            <strong>
+              VCV Rack
+            </strong>
+
+            <span>
+
+              Síntese modular,
+              processamento de sinal,
+              modulação e experimentação
+              de controle.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="tech">
+
+            <strong>
+              Blender
+            </strong>
+
+            <span>
+
+              Visualização 3D,
+              estudo espacial,
+              desenvolvimento visual
+              e ambientes multimídia.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="tech">
+
+            <strong>
+              MIDI · OSC
+            </strong>
+
+            <span>
+
+              Comunicação,
+              sincronização
+              e interoperabilidade
+              entre sistemas.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="tech">
+
+            <strong>
+              Eletrônica Criativa
+            </strong>
+
+            <span>
+
+              Sensores,
+              interfaces,
+              controladores
+              e dispositivos
+              customizados para cena.
+
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FLORESTA > LIVE
+    ====================================================== -->
+
+    <section>
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Da pesquisa à apresentação
+        </p>
+
+        <h2>
+          Da captação de campo
+          ao som imersivo.
+        </h2>
+
+
+        <div class="flow">
+
+
+          <article class="flow-item">
+
+            <h3>
+              Pesquisa
+              de Campo
+            </h3>
+
+            <p class="small">
+
+              Escuta,
+              documentação
+              e identificação
+              dos materiais sonoros
+              do território.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="flow-item">
+
+            <h3>
+              Captação
+              Ambisonics
+            </h3>
+
+            <p class="small">
+
+              Registro espacial
+              original e construção
+              de uma memória sonora
+              do ambiente.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="flow-item">
+
+            <h3>
+              Processamento
+            </h3>
+
+            <p class="small">
+
+              Edição,
+              transformação,
+              composição
+              e preparação
+              para espacialização.
+
+            </p>
+
+          </article>
+
+
+
+          <article class="flow-item">
+
+            <h3>
+              Live
+              Spatialization
+            </h3>
+
+            <p class="small">
+
+              Decodificação,
+              integração multicanal
+              e espacialização
+              em tempo real.
+
+            </p>
+
+          </article>
+
+
+        </div>
+
+
+
+        <div class="price-list">
+
+          <div class="price-row">
+
+            <div>
+              Pesquisa e captação
+              de campo — 5 dias
+            </div>
+
+            <div class="price">
+              €2.000–3.500 + logística
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RIDER 16 CANAIS
+    ====================================================== -->
+
+    <section id="rider">
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Produto técnico
+        </p>
+
+        <h2>
+          Rider Técnico
+          · Sistema Imersivo
+          de 16 Canais
+        </h2>
+
+
+        <p class="lead">
+
+          Especificação completa
+          para montagem e operação
+          de um sistema imersivo
+          com 16 canais independentes,
+          preparado para produção local,
+          tournée e adaptação
+          a diferentes espaços.
+
+        </p>
+
+
+
+        <div class="feature">
+
+
+          <div class="feature-grid">
+
+
+            <div>
+
+              <p class="eyebrow">
+                Entregáveis
+              </p>
+
+              <h3>
+                O rider pode incluir
+              </h3>
+
+
+              <ul>
+
+                <li>
+                  Arquitetura de sinal
+                  e distribuição
+                  de 16 canais independentes
+                </li>
+
+                <li>
+                  Planta de posicionamento
+                  dos pontos de difusão
+                </li>
+
+                <li>
+                  Ângulos e orientação
+                  das caixas
+                </li>
+
+                <li>
+                  Interface e conversão
+                  D/A multicanal
+                </li>
+
+                <li>
+                  Roteamento
+                  e matriz de sinais
+                </li>
+
+                <li>
+                  Especificação
+                  de caixas,
+                  amplificação
+                  e cabeamento
+                </li>
+
+                <li>
+                  Ambisonics,
+                  decodificação
+                  e espacialização
+                </li>
+
+                <li>
+                  MIDI,
+                  OSC e sincronismo
+                  quando aplicável
+                </li>
+
+                <li>
+                  Infraestrutura elétrica
+                  e técnica
+                </li>
+
+                <li>
+                  Montagem,
+                  alinhamento,
+                  teste e afinação
+                </li>
+
+                <li>
+                  Equipe técnica
+                  necessária
+                </li>
+
+                <li>
+                  Load-in,
+                  passagem,
+                  operação
+                  e load-out
+                </li>
+
+              </ul>
+
+            </div>
+
+
+
+            <div>
+
+              <p class="eyebrow">
+                Desenvolvimento do Rider
+              </p>
+
+              <div class="big-price">
+                €600–1.200
+              </div>
+
+              <p class="small">
+
+                Desenvolvimento,
+                desenho técnico
+                e documentação
+                do sistema.
+
+              </p>
+
+
+              <div class="separator"></div>
+
+
+              <p class="eyebrow">
+                Execução · referência Paris
+              </p>
+
+              <div class="big-price">
+                €2.400
+              </div>
+
+              <p class="small">
+
+                provisão-base
+                por dia
+
+              </p>
+
+
+              <p class="small">
+
+                Estimativa destinada
+                ao pré-orçamento
+                de equipamento
+                e infraestrutura local
+                para uma arquitetura
+                de 16 canais.
+
+              </p>
+
+
+              <p class="small">
+
+                O valor final será
+                confirmado com fornecedor
+                local após definição
+                do venue,
+                modelos disponíveis,
+                rigging,
+                transporte,
+                equipe
+                e impostos aplicáveis.
+
+              </p>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <p
+          class="small"
+          style="
+            margin-top: 24px;
+            max-width: 900px;
+          "
+        >
+
+          A referência de Paris funciona
+          como provisão comercial:
+          permite que o projeto já tenha
+          um valor de execução previsto
+          sem precisar iniciar uma pesquisa
+          de fornecedores antes da aprovação
+          do conceito técnico.
+
+        </p>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TOURING
+    ====================================================== -->
+
+    <section>
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Touring
+        </p>
+
+        <h2>
+          Um sistema projetado
+          para poder viajar.
+        </h2>
+
+
+        <p class="lead">
+
+          A documentação permite
+          desmontagem, remontagem
+          e readaptação do sistema
+          em diferentes cidades,
+          equipamentos e espaços,
+          preservando a lógica
+          artística e espacial
+          do projeto.
+
+        </p>
+
+
+        <div class="price-list">
+
+
+          <div class="price-row">
+
+            <div>
+              Modular System
+              & Reconfiguration
+            </div>
+
+            <div class="price">
+              €800–1.800 / adaptação
+            </div>
+
+          </div>
+
+
+          <div class="price-row">
+
+            <div>
+              Documentação
+              & Transferência Técnica
+            </div>
+
+            <div class="price">
+              €600–1.200 / projeto
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONDIÇÕES
+    ====================================================== -->
+
+    <section id="condicoes">
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Condições comerciais
+        </p>
+
+        <h2>
+          Construído ao redor
+          do projeto.
+        </h2>
+
+
+        <div class="terms">
+
+
+          <div class="term">
+
+            Os módulos podem ser
+            contratados separadamente
+            ou combinados.
+
+          </div>
+
+
+          <div class="term">
+
+            Valores-base
+            apresentados em EUR.
+
+          </div>
+
+
+          <div class="term">
+
+            Passagens e deslocamentos
+            são orçados separadamente.
+
+          </div>
+
+
+          <div class="term">
+
+            Hospedagem,
+            alimentação / per diem
+            e transporte local
+            são separados
+            dos honorários.
+
+          </div>
+
+
+          <div class="term">
+
+            Transporte de equipamento,
+            bagagem técnica,
+            seguros e permissões
+            são cotados conforme
+            a produção.
+
+          </div>
+
+
+          <div class="term">
+
+            Conversão cambial
+            aplicada segundo
+            a cotação vigente
+            no faturamento.
+
+          </div>
+
+
+          <div class="term">
+
+            Taxa administrativa
+            da Cooperativa:
+            <strong>7%</strong>
+            sobre o valor final
+            convertido para BRL.
+
+          </div>
+
+
+          <div class="term">
+
+            O orçamento final
+            depende de escopo,
+            duração,
+            venue,
+            equipe e infraestrutura
+            disponível.
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL
+    ====================================================== -->
+
+    <section class="final">
+
+      <div class="wrap">
+
+        <p class="eyebrow">
+          Proposta modular
+        </p>
+
+
+        <h2>
+          Da floresta ao palco,
+          o sistema técnico
+          nasce da narrativa.
+        </h2>
+
+
+        <p
+          class="lead"
+          style="
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+
+          A partir do escopo artístico,
+          definimos os módulos necessários
+          e construímos a arquitetura
+          técnica adequada à produção.
+
+        </p>
+
+
+        <a
+          class="button"
+          href="https://caioyabura-lgtm.github.io/portfolio/portfolio.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Ver portfólio
+        </a>
+
+
+
+        <div class="identity">
+
+
+          <div>
+
+            <strong>
+              Caio Rodrigues
+            </strong>
+
+            <br>
+
+            Coordinator —
+            Fab Lab Acousmonium
+
+          </div>
+
+
+          <div>
+
+            Head of the Music Technology Center
+
+            <br>
+
+            Cooperativa de Empreendedores
+            de Belo Horizonte
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <footer>
+
+    <div class="wrap">
+
+      Proposta técnica e comercial
+      · Fab Lab Acousmonium
+      · 2026
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
